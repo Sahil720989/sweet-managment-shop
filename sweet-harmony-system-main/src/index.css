@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sweet Shop Design System - Warm, Inviting Confectionery Aesthetic */
+
+@layer base {
+  :root {
+    /* Cream/Vanilla background */
+    --background: 40 33% 98%;
+    --foreground: 25 30% 15%;
+
+    /* Card - slightly warmer white */
+    --card: 40 40% 99%;
+    --card-foreground: 25 30% 15%;
+
+    /* Popover */
+    --popover: 40 40% 99%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Chocolate Brown Primary */
+    --primary: 25 45% 25%;
+    --primary-foreground: 40 40% 98%;
+
+    /* Soft Cream Secondary */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 25 30% 20%;
+
+    /* Muted tones */
+    --muted: 35 20% 93%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Golden Amber Accent */
+    --accent: 38 85% 55%;
+    --accent-foreground: 25 45% 15%;
+
+    /* Destructive - Raspberry */
+    --destructive: 350 65% 50%;
+    --destructive-foreground: 40 40% 98%;
+
+    /* Borders */
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 38 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors for sweet shop */
+    --sweet-pink: 350 60% 65%;
+    --sweet-mint: 160 40% 60%;
+    --sweet-caramel: 30 70% 50%;
+    --sweet-berry: 320 50% 45%;
+    
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(40 33% 98%) 0%, hsl(35 30% 95%) 100%);
+    --gradient-golden: linear-gradient(135deg, hsl(38 85% 55%) 0%, hsl(30 70% 50%) 100%);
+    --gradient-chocolate: linear-gradient(135deg, hsl(25 45% 25%) 0%, hsl(20 40% 18%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(25 30% 15% / 0.12);
+    --shadow-golden: 0 4px 20px -4px hsl(38 85% 55% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 35 30% 96%;
+    --sidebar-foreground: 25 30% 20%;
+    --sidebar-primary: 25 45% 25%;
+    --sidebar-primary-foreground: 40 40% 98%;
+    --sidebar-accent: 35 25% 90%;
+    --sidebar-accent-foreground: 25 30% 20%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 38 85% 55%;
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 40 25% 95%;
+
+    --card: 25 28% 12%;
+    --card-foreground: 40 25% 95%;
+
+    --popover: 25 28% 12%;
+    --popover-foreground: 40 25% 95%;
+
+    --primary: 38 75% 55%;
+    --primary-foreground: 25 30% 10%;
+
+    --secondary: 25 25% 18%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 38 80% 50%;
+    --accent-foreground: 25 30% 10%;
+
+    --destructive: 350 60% 45%;
+    --destructive-foreground: 40 25% 95%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 38 80% 50%;
+
+    --sidebar-background: 25 28% 10%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 38 75% 55%;
+    --sidebar-primary-foreground: 25 30% 10%;
+    --sidebar-accent: 25 20% 16%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 25 20% 18%;
+    --sidebar-ring: 38 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .sweet-card {
+    @apply bg-card rounded-xl border border-border shadow-[var(--shadow-soft)] 
+           hover:shadow-[var(--shadow-medium)] transition-all duration-300;
+  }
+
+  .sweet-button-primary {
+    @apply bg-primary text-primary-foreground hover:opacity-90 
+           transition-all duration-200 shadow-[var(--shadow-soft)];
+  }
+
+  .sweet-button-accent {
+    background: var(--gradient-golden);
+    @apply text-accent-foreground hover:opacity-90 
+           transition-all duration-200 shadow-[var(--shadow-golden)];
+  }
+
+  .sweet-input {
+    @apply bg-background border-border focus:ring-2 focus:ring-accent/30 
+           focus:border-accent transition-all duration-200;
+  }
+
+  .sweet-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .sweet-badge-category {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .sweet-badge-stock {
+    @apply bg-accent/20 text-accent-foreground;
+  }
+
+  .sweet-badge-out {
+    @apply bg-destructive/20 text-destructive;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+}
